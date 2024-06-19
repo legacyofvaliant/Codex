@@ -7,30 +7,30 @@ Inventories:
       item: BOOK
       name: "&7Category: %name%"
       lore:
-      - "&eIn your adventures you'll find some"
-      - "&einteresting knowledge."
-      - ""
-      - "&7Unlocked: %unlocked% &8[%progress_bar%&8] &8(&7%percentage%&8)"
+        - "&eIn your adventures you'll find some"
+        - "&einteresting knowledge."
+        - ""
+        - "&7Unlocked: %unlocked% &8[%progress_bar%&8] &8(&7%percentage%&8)"
       open_inventory: history_discoveries
     22:
       type: regions
       item: MAP
       name: "&7Category: %name%"
       lore:
-      - "&eDifferent regions you've explored will"
-      - "&ebe displayed here."
-      - ""
-      - "&7Unlocked: %unlocked% &8[%progress_bar%&8] &8(&7%percentage%&8)"
+        - "&eDifferent regions you've explored will"
+        - "&ebe displayed here."
+        - ""
+        - "&7Unlocked: %unlocked% &8[%progress_bar%&8] &8(&7%percentage%&8)"
       open_inventory: regions_discoveries
     23:
       type: monsters
       skull_data: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZmZjNGY3M2JmYjcyYzdmYTkwM2VjZjQwMGRkM2JiMTZlMzRlZGNlNjZlMjEwNWU3NjM3OTg1N2FjNjgxNWM3ZCJ9fX0=
       name: "&7Category: %name%"
       lore:
-      - "&eInformation about different monsters you've"
-      - "&eencountered."
-      - ""
-      - "&7Unlocked: %unlocked% &8[%progress_bar%&8] &8(&7%percentage%&8)"
+        - "&eInformation about different monsters you've"
+        - "&eencountered."
+        - ""
+        - "&7Unlocked: %unlocked% &8[%progress_bar%&8] &8(&7%percentage%&8)"
       open_inventory: monsters_discoveries
     0;8;36;44:
       item: RED_STAINED_GLASS_PANE
@@ -50,7 +50,7 @@ Inventories:
       item: PAPER
       name: "&6Discovery: %name%"
       lore:
-      - "%lore%"
+        - "%lore%"
     39:
       skull_data: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzdhZWU5YTc1YmYwZGY3ODk3MTgzMDE1Y2NhMGIyYTdkNzU1YzYzMzg4ZmYwMTc1MmQ1ZjQ0MTlmYzY0NSJ9fX0=
       name: "&7Go Back"
@@ -69,13 +69,13 @@ Inventories:
       item: PAPER
       name: "&6Discovery: %name%"
       lore:
-      - "%lore%"
+        - "%lore%"
     12:
       type: regions;2
       item: PAPER
       name: "&6Discovery: %name%"
       lore:
-      - "%lore%"
+        - "%lore%"
     39:
       skull_data: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzdhZWU5YTc1YmYwZGY3ODk3MTgzMDE1Y2NhMGIyYTdkNzU1YzYzMzg4ZmYwMTc1MmQ1ZjQ0MTlmYzY0NSJ9fX0=
       name: "&7Go Back"
@@ -94,7 +94,7 @@ Inventories:
       item: PAPER
       name: "&6Discovery: %name%"
       lore:
-      - "%lore%"
+        - "%lore%"
     39:
       skull_data: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzdhZWU5YTc1YmYwZGY3ODk3MTgzMDE1Y2NhMGIyYTdkNzU1YzYzMzg4ZmYwMTc1MmQ1ZjQ0MTlmYzY0NSJ9fX0=
       name: "&7Go Back"

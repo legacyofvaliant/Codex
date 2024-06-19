@@ -2,5 +2,5 @@ package cx.ajneb97.data;
 
 public interface AgregarEntradaCallback {
 
-	public void onDone(boolean agrega);
+    public void onDone(boolean agrega);
 }

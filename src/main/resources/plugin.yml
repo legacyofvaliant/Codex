@@ -3,7 +3,7 @@ version: 1.15.2
 name: Codex
 api-version: 1.13
 author: Ajneb97
-softdepend: [WorldGuard,WorldEdit,PlaceholderAPI,MythicMobs]
+softdepend: [ WorldGuard,WorldEdit,PlaceholderAPI,MythicMobs ]
 
 commands:
   codex:

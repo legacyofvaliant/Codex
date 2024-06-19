@@ -1,11 +1,11 @@
 package cx.ajneb97.libs.titleapi;
 
+import cx.ajneb97.managers.MensajesManager;
+import cx.ajneb97.utils.UtilidadesOtros;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
-import cx.ajneb97.managers.MensajesManager;
-import cx.ajneb97.utils.UtilidadesOtros;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
@@ -43,17 +43,17 @@ public class TitleAPI implements Listener {
     }
 
     public static void sendTitle(Player player, Integer fadeIn, Integer stay, Integer fadeOut, String title, String subtitle) {
-    	if(UtilidadesOtros.esNew()) {
-    		if(title.isEmpty()) {
-        		title = " ";
-        	}
-        	if(subtitle.isEmpty()) {
-        		subtitle = " ";
-        	}
-    		player.sendTitle(MensajesManager.getMensajeColor(title), MensajesManager.getMensajeColor(subtitle), fadeIn, stay, fadeOut);
-    		return;
-    	}
-    	try {
+        if (UtilidadesOtros.esNew()) {
+            if (title.isEmpty()) {
+                title = " ";
+            }
+            if (subtitle.isEmpty()) {
+                subtitle = " ";
+            }
+            player.sendTitle(MensajesManager.getMensajeColor(title), MensajesManager.getMensajeColor(subtitle), fadeIn, stay, fadeOut);
+            return;
+        }
+        try {
             Object e;
             Object chatTitle;
             Object chatSubtitle;
