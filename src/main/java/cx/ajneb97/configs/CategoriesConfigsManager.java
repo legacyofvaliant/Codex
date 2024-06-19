@@ -2,6 +2,7 @@ package cx.ajneb97.configs;
 
 import cx.ajneb97.Codex;
 import cx.ajneb97.model.*;
+import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 
 import java.io.File;
@@ -107,30 +108,23 @@ public class CategoriesConfigsManager {
                     String nameCodex = config.getString("discoveries." + key + ".name");
                     List<String> loreCodex = config.getStringList("discoveries." + key + ".lore");
                     String discoveredOnRegion = null;
-                    EntradaCodexOpcionesMobKill discoveredOnMobKill = null;
+                    List<EntradaCodexOpcionesMobKill> discoveredOnMobKillList = new ArrayList<EntradaCodexOpcionesMobKill>();
                     List<String> comandos = new ArrayList<String>();
                     if (config.contains("discoveries." + key + ".discovered_on_region")) {
                         discoveredOnRegion = config.getString("discoveries." + key + ".discovered_on_region");
                     }
-                    if (config.contains("discoveries." + key + ".discovered_on_mob_kill")) {
-                        String tipoMob = null;
-                        String nombreMob = null;
-                        String mythicMobsId = null;
-                        if (config.contains("discoveries." + key + ".discovered_on_mob_kill.type")) {
-                            tipoMob = config.getString("discoveries." + key + ".discovered_on_mob_kill.type");
-                        }
-                        if (config.contains("discoveries." + key + ".discovered_on_mob_kill.name")) {
-                            nombreMob = config.getString("discoveries." + key + ".discovered_on_mob_kill.name");
-                        }
-                        if (config.contains("discoveries." + key + ".discovered_on_mob_kill.mythic_mobs_id")) {
-                            mythicMobsId = config.getString("discoveries." + key + ".discovered_on_mob_kill.mythic_mobs_id");
-                        }
-                        discoveredOnMobKill = new EntradaCodexOpcionesMobKill(tipoMob, nombreMob, mythicMobsId);
-                    }
+
+                    config.getMapList("discoveries." + key + ".discovered_on_any_mob_kill").forEach(mobKill -> {
+                        String mobType = (String) mobKill.get("type");
+                        String mobName = (String) mobKill.get("name");
+                        String mythicMobsId = (String) mobKill.get("mythic_mobs_id");
+                        discoveredOnMobKillList.add(new EntradaCodexOpcionesMobKill(mobType, mobName, mythicMobsId));
+                    });
+
                     if (config.contains("discoveries." + key + ".commands")) {
                         comandos = config.getStringList("discoveries." + key + ".commands");
                     }
-                    EntradaCodex entrada = new EntradaCodex(key, nameCodex, loreCodex, discoveredOnRegion, discoveredOnMobKill
+                    EntradaCodex entrada = new EntradaCodex(key, nameCodex, loreCodex, discoveredOnRegion, discoveredOnMobKillList
                             , comandos);
                     entradas.add(entrada);
                 }

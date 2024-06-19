@@ -36,6 +36,4 @@ public class EntradaCodexOpcionesMobKill {
     public void setMythicMobsId(String mythicMobsId) {
         this.mythicMobsId = mythicMobsId;
     }
-
-
 }

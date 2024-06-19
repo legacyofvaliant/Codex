@@ -28,6 +28,6 @@ discoveries:
       - "&6Drops:"
       - "&c❱ &7Shadow Elixir &8(25%)"
       - "&c❱ &7Iron Ingot &8(90%)"
-    discovered_on_mob_kill:
-      type: ZOMBIE
-      name: "Shadow Warrior"
+    discovered_on_any_mob_kill:
+      - type: ZOMBIE
+        name: "Shadow Warrior"

@@ -1,10 +1,8 @@
 package cx.ajneb97.listeners;
 
 import cx.ajneb97.Codex;
-import cx.ajneb97.data.AgregarEntradaCallback;
 import cx.ajneb97.model.CategoriaCodex;
 import cx.ajneb97.model.EntradaCodex;
-import cx.ajneb97.model.EntradaCodexOpcionesMobKill;
 import io.lumine.mythic.bukkit.events.MythicMobDeathEvent;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
@@ -32,20 +30,13 @@ public class MythicMobsListener implements Listener {
             for (final CategoriaCodex categoria : categorias) {
                 List<EntradaCodex> entradas = categoria.getEntradas();
                 for (final EntradaCodex entrada : entradas) {
-                    EntradaCodexOpcionesMobKill opcionesMobKill = entrada.getDiscoveredOnMobKill();
-                    if (opcionesMobKill != null) {
-                        String mythicMobsId = opcionesMobKill.getMythicMobsId();
-                        if (mythicMobsId != null && type.equals(mythicMobsId)) {
-                            plugin.getJugadorDataManager().agregarEntrada(jugador, categoria.getPath(), entrada.getId(), new AgregarEntradaCallback() {
-                                @Override
-                                public void onDone(boolean agrega) {
-                                    if (agrega) {
-                                        plugin.getCodexManager().desbloquearEntrada(jugador, categoria, entrada);
-                                    }
-                                }
-                            });
-                            return;
-                        }
+                    if (entrada.getDiscoveredOnMobKillList().stream().anyMatch(opcionesMobKill -> opcionesMobKill.getMythicMobsId() != null && opcionesMobKill.getMythicMobsId().equals(type))) {
+                        plugin.getJugadorDataManager().agregarEntrada(jugador, categoria.getPath(), entrada.getId(), agrega -> {
+                            if (agrega) {
+                                plugin.getCodexManager().desbloquearEntrada(jugador, categoria, entrada);
+                            }
+                        });
+                        return;
                     }
                 }
             }

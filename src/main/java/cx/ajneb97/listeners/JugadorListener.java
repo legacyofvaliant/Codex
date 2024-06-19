@@ -68,13 +68,11 @@ public class JugadorListener implements Listener {
         if (jugador != null) {
             ArrayList<CategoriaCodex> categorias = plugin.getCategoriasManager().getCategorias();
             for (final CategoriaCodex categoria : categorias) {
-                List<EntradaCodex> entradas = categoria.getEntradas();
-                for (final EntradaCodex entrada : entradas) {
-                    EntradaCodexOpcionesMobKill opcionesMobKill = entrada.getDiscoveredOnMobKill();
-                    if (opcionesMobKill != null) {
+                for (final EntradaCodex entrada : categoria.getEntradas()) {
+                    boolean pasa = false;
+                    for (EntradaCodexOpcionesMobKill opcionesMobKill : entrada.getDiscoveredOnMobKillList()) {
                         String nombre = opcionesMobKill.getNombre();
                         String tipo = opcionesMobKill.getType();
-                        boolean pasa = false;
                         if (nombre == null) {
                             //Solo el tipo debe ser igual
                             if (e.getType().name().equals(tipo)) {
@@ -92,16 +90,13 @@ public class JugadorListener implements Listener {
                                 pasa = true;
                             }
                         }
-                        if (pasa) {
-                            plugin.getJugadorDataManager().agregarEntrada(jugador, categoria.getPath(), entrada.getId(), new AgregarEntradaCallback() {
-                                @Override
-                                public void onDone(boolean agrega) {
-                                    if (agrega) {
-                                        plugin.getCodexManager().desbloquearEntrada(jugador, categoria, entrada);
-                                    }
-                                }
-                            });
-                        }
+                    }
+                    if (pasa) {
+                        plugin.getJugadorDataManager().agregarEntrada(jugador, categoria.getPath(), entrada.getId(), agrega -> {
+                            if (agrega) {
+                                plugin.getCodexManager().desbloquearEntrada(jugador, categoria, entrada);
+                            }
+                        });
                     }
                 }
             }

@@ -8,17 +8,17 @@ public class EntradaCodex {
     private String nombre;
     private List<String> lore;
     private String discoveredOnRegion;
-    private EntradaCodexOpcionesMobKill discoveredOnMobKill;
+    private List<EntradaCodexOpcionesMobKill> discoveredOnMobKillList;
     private List<String> comandos;
 
     public EntradaCodex(String id, String nombre, List<String> lore, String discoveredOnRegion,
-                        EntradaCodexOpcionesMobKill discoveredOnMobKill, List<String> comandos) {
+                        List<EntradaCodexOpcionesMobKill> discoveredOnMobKillList, List<String> comandos) {
         super();
         this.id = id;
         this.nombre = nombre;
         this.lore = lore;
         this.discoveredOnRegion = discoveredOnRegion;
-        this.discoveredOnMobKill = discoveredOnMobKill;
+        this.discoveredOnMobKillList = discoveredOnMobKillList;
         this.comandos = comandos;
     }
 
@@ -54,12 +54,12 @@ public class EntradaCodex {
         this.discoveredOnRegion = discoveredOnRegion;
     }
 
-    public EntradaCodexOpcionesMobKill getDiscoveredOnMobKill() {
-        return discoveredOnMobKill;
+    public List<EntradaCodexOpcionesMobKill> getDiscoveredOnMobKillList() {
+        return discoveredOnMobKillList;
     }
 
-    public void setDiscoveredOnMobKill(EntradaCodexOpcionesMobKill discoveredOnMobKill) {
-        this.discoveredOnMobKill = discoveredOnMobKill;
+    public void setDiscoveredOnMobKillList(List<EntradaCodexOpcionesMobKill> discoveredOnMobKillList) {
+        this.discoveredOnMobKillList = discoveredOnMobKillList;
     }
 
     public List<String> getComandos() {
